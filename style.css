@@ -8,10 +8,11 @@
 
 header nav{
     padding: 1em;
-    background-color: #00d5ff;
+    background-color: snow;
     display: flex;
-    color: white;
     text-align: center;
+    box-shadow: 0 0 8px 8px whitesmoke;
+    border-bottom: 1px solid rgba(0,0,0,.5);
 }
 
 header nav .app-tittle{
@@ -26,10 +27,7 @@ main{
 }
 
 main aside, #konten{
-    margin: 1em;
-    border-radius: .5em;
-    box-shadow: 0 0 2px 2px #00d5ff;
-    padding: 1em;
+    /*box-shadow: 0 0 2px 2px #00d5ff;*/
     display: flex;
 }
 
@@ -48,7 +46,7 @@ aside *{
 }
 
 #tambah-buku{
-    background-color: royalblue;
+    background-color: whitesmoke;
 }
 
 .input-wrapper{
@@ -62,15 +60,17 @@ aside *{
     margin: .25em;
 }
 
+input[type=text]{}
+
 .input-wrapper input[type=text]{
     width: 90%;
     height: 2em;
     border-radius: .25em;
     outline: none;
     margin: .5em auto;
-    border: 2px solid rgba(0,213,255, .5);
-    /*on hover*/
-    box-shadow: 0 0 2px 2px rgba(0,213,255, .5);
+    /*border: 2px solid rgba(0,213,255, .5);*/
+    /*!*on hover*!*/
+    /*box-shadow: 0 0 2px 2px rgba(0,213,255, .5);*/
 }
 
 .input-wrapper input[type=checkbox]{
@@ -84,27 +84,81 @@ aside *{
 }
 
 #pencarian{
-    background-color: chocolate;
+    background-color: whitesmoke;
+    padding: .5em;
+    display: flex;
+}
+
+#pencarian *{
+    margin: auto .5em;
+}
+
+#cari{
+    background-color: rgba(219, 219, 219, 1);
+    flex: 95%;
+    padding: .5em;
+    outline: none;
+    border: 1px solid transparent;
+    box-shadow: 0 0 1px 1px transparent;
+    border-radius: .25em;
+    transition: all .3s;
+}
+
+#cari:focus{
+    background-color: whitesmoke;
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 1px 2px dodgerblue;
+}
+
+#go-cari{
+    flex: 5%;
+    text-align: center;
+    padding: 0.25em;
+    cursor: pointer;
 }
 
 #konten{
     display: flex;
+    padding: 0;
 }
 
 .bookshelf{
+    background-color: rgba(0,213,255, .5);;
     flex: 40%;
-    margin: .5em;
-}
-
-.rak-buku{
-    background-color: yellowgreen;
     padding: .5em;
 }
 
-.item-buku{
-    margin-top: .5em;
-    background-color: yellow;
+.bookshelf h1{
+    color: royalblue;
+    margin-bottom: 1em;
 }
+
+.item-buku{
+    padding: .25em;
+    margin-top: 1em;
+    border: 2px solid #00d5ff;
+    border-radius: .25em;
+}
+
+.judul{
+    color: royalblue;
+    border-bottom: 2px solid royalblue;
+    width: fit-content;
+    padding-right: 1em;
+}
+
+.item-buku p{
+    font-size: .75em;
+}
+
+
+
+
+
+
+
+
+
 
 
 

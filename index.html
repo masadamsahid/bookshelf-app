@@ -10,6 +10,8 @@
     <!--  CSS  -->
     <link rel="stylesheet" href="style.css">
 
+    <!--  Font Awesome  -->
+    <script src="https://kit.fontawesome.com/e837a94a5d.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
@@ -23,6 +25,13 @@
 <main>
 
     <aside>
+
+        <div id="pencarian">
+            <input type="text" id="cari" name="cari" placeholder="Cari buku ...">
+            <span id="go-cari">
+                <i class="fas fa-search" style="font-size: 1em; margin: auto"></i>
+            </span>
+        </div>
 
         <div id="tambah-buku">
             <h1>Masukkan Buku Baru</h1>
@@ -48,16 +57,9 @@
             </div>
 
             <button>
-                Tambahkan Buku
+                Tambah
             </button>
 
-        </div>
-
-        <div id="pencarian">
-            <h1>Cari Buku</h1>
-
-            <input type="text" id="cari" name="cari">
-            <button>Cari</button>
         </div>
 
     </aside>
