@@ -63,17 +63,14 @@ main aside{
     flex: 70%;
 }
 
-aside *{
-    flex: 20%;
-}
-
 #pencarian{
     padding: .5em;
     display: flex;
+    height: fit-content;
 }
 
 #pencarian *{
-    margin: auto .5em;
+    margin: auto;
 }
 
 #cari{
@@ -94,7 +91,7 @@ aside *{
 }
 
 #go-cari{
-    flex: 5%;
+    flex: 20%;
     text-align: center;
     padding: 0.25em;
     cursor: pointer;
@@ -203,27 +200,76 @@ input[type=text]{}
 }
 
 .bookshelf h1{
-    color: royalblue;
+    color: black;
     margin-bottom: 1em;
 }
 
 .item-buku{
-    padding: .25em;
     margin-top: 1em;
-    border: 2px solid #00d5ff;
+    border: 2px solid black;
     border-radius: .25em;
+    display: flex;
+}
+
+.item-buku h3{
+    color: black;
 }
 
 .judul{
-    color: royalblue;
-    border-bottom: 2px solid royalblue;
+    border-bottom: 2px solid black;
     width: fit-content;
     padding-right: 1em;
+    margin-bottom: .5em;
 }
 
 .item-buku p{
     font-size: .75em;
 }
+
+.part1{
+    flex: 80%;
+    padding: .25em;
+}
+
+.part2{
+    flex: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.part2 *{
+    flex: 50%;
+    font-size: .75em;
+}
+
+.btn{
+    padding: .25em;
+    background-color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.is-selesai{
+    color: green;
+}
+
+.is-selesai:hover{
+    background-color: green;
+    color: white;
+}
+
+.hapus{
+    color: darkred;
+}
+
+.hapus:hover{background-color: darkred;color: white}
+
+
+
+
 
 
 
