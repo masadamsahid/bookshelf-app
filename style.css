@@ -87,7 +87,24 @@ aside *{
     background-color: chocolate;
 }
 
+#konten{
+    display: flex;
+}
 
+.bookshelf{
+    flex: 40%;
+    margin: .5em;
+}
+
+.rak-buku{
+    background-color: yellowgreen;
+    padding: .5em;
+}
+
+.item-buku{
+    margin-top: .5em;
+    background-color: yellow;
+}
 
 
 
