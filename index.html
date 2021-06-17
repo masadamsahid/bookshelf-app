@@ -19,5 +19,126 @@
         </div>
     </nav>
 </header>
+
+<main>
+
+    <aside>
+
+        <div id="tambah-buku">
+            <h1>Masukkan Buku Baru</h1>
+
+            <div class="input-wrapper">
+                <label for="judul">Judul</label>
+                <input type="text" id="judul" name="judul">
+            </div>
+
+            <div class="input-wrapper">
+                <label for="penulis">Penulis</label>
+                <input type="text" id="penulis" name="penulis">
+            </div>
+
+            <div class="input-wrapper">
+                <label for="tahun">Tahun</label>
+                <input type="text" id="tahun" name="tahun">
+            </div>
+
+            <div class="">
+                <label for="is-dibaca">Selesai Dibaca</label>
+                <input type="checkbox" id="is-dibaca" name="is-dibaca">
+            </div>
+
+            <button>
+                Tambahkan Buku
+            </button>
+
+        </div>
+
+        <div id="pencarian">
+            <h1>Cari Buku</h1>
+
+            <input type="text" id="cari" name="cari">
+            <button>Cari</button>
+        </div>
+
+    </aside>
+
+    <div id="konten">
+
+        <section id="selesai-dibaca" class="bookshelf">
+            <h1>Selesai Dibaca</h1>
+
+            <div class="rak-buku">
+
+                <div class="item-buku">
+                    <h2 class="judul">Art of War</h2>
+                    <p>Penulis : <span class="penulis">Sun Tzu</span></p>
+                    <p>Tahun : <span class="tahun">100 BC</span></p>
+                    <button class="btn is-selesai">
+                        Selesai dibaca
+                    </button>
+                    <button class="btn hapus">
+                        Hapus
+                    </button>
+                </div>
+
+                <div class="item-buku">
+                    <h2 class="judul">Art of War</h2>
+                    <p>Penulis : <span class="penulis">Sun Tzu</span></p>
+                    <p>Tahun : <span class="tahun">100 BC</span></p>
+                    <button class="btn is-selesai">
+                        Selesai dibaca
+                    </button>
+                    <button class="btn hapus">
+                        Hapus
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="belum-dibaca" class="bookshelf">
+            <h1>Belum Dibaca</h1>
+
+            <div class="rak-buku">
+
+                <div class="item-buku">
+                    <h2 class="judul">Art of War</h2>
+                    <p>Penulis : <span class="penulis">Sun Tzu</span></p>
+                    <p>Tahun : <span class="tahun">100 BC</span></p>
+                    <button class="btn is-selesai">
+                        Selesai dibaca
+                    </button>
+                    <button class="btn hapus">
+                        Hapus
+                    </button>
+                </div>
+
+                <div class="item-buku">
+                    <h2 class="judul">Art of War</h2>
+                    <p>Penulis : <span class="penulis">Sun Tzu</span></p>
+                    <p>Tahun : <span class="tahun">100 BC</span></p>
+                    <button class="btn is-selesai">
+                        Selesai dibaca
+                    </button>
+                    <button class="btn hapus">
+                        Hapus
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+<footer style="width: 100%; background-color: whitesmoke;">
+    <div>
+        &copy; Maulana Adam Sahid 2021
+    </div>
+</footer>
+
 </body>
 </html>

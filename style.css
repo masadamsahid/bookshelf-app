@@ -7,7 +7,7 @@
 }
 
 header nav{
-    height: 4em;
+    padding: 1em;
     background-color: #00d5ff;
     display: flex;
     color: white;
@@ -19,17 +19,73 @@ header nav .app-tittle{
     margin: auto;
 }
 
+main{
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+}
 
+main aside, #konten{
+    margin: 1em;
+    border-radius: .5em;
+    box-shadow: 0 0 2px 2px #00d5ff;
+    padding: 1em;
+    display: flex;
+}
 
+main aside{
+    flex: 20%;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+}
 
+#konten{
+    flex: 70%;
+}
 
+aside *{
+    flex: 20%;
+}
 
+#tambah-buku{
+    background-color: royalblue;
+}
 
+.input-wrapper{
+    width: 100%;
+    margin: 1em auto;
+    padding: 0;
+}
 
+.input-wrapper label{
+    display: block;
+    margin: .25em;
+}
 
+.input-wrapper input[type=text]{
+    width: 90%;
+    height: 2em;
+    border-radius: .25em;
+    outline: none;
+    margin: .5em auto;
+    border: 2px solid rgba(0,213,255, .5);
+    /*on hover*/
+    box-shadow: 0 0 2px 2px rgba(0,213,255, .5);
+}
 
+.input-wrapper input[type=checkbox]{
+    display: inline-block;
+    margin: 0;
+}
 
+.input-wrapper label[for="is-dibaca"]{
+    display: inline-block;
+    margin: 0;
+}
 
+#pencarian{
+    background-color: chocolate;
+}
 
 
 
