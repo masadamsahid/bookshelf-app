@@ -6,13 +6,32 @@
     font-family: 'Roboto', sans-serif;
 }
 
+footer{
+    padding: 2em;
+    width: 40%;
+    margin: auto;
+    border-radius: 1em;
+}
+
+.copyright{
+    margin: auto;
+    text-align: center;
+}
+
+body{
+    background-color: rgb(171, 171, 171);
+    background-image: url("https://res.cloudinary.com/twenty20/private_images/t_watermark-criss-cross-10/v1561760443000/photosp/aef02960-60f5-4b9b-ac82-7cbe9703d945/stock-photo-backgrounds-colorful-bookshelf-library-colourful-background-books-in-the-library-library-books-aef02960-60f5-4b9b-ac82-7cbe9703d945.jpg");
+}
+
+header{
+    display: none;
+}
+
 header nav{
     padding: 1em;
-    background-color: snow;
+    background-color: white;
     display: flex;
     text-align: center;
-    box-shadow: 0 0 8px 8px whitesmoke;
-    border-bottom: 1px solid rgba(0,0,0,.5);
 }
 
 header nav .app-tittle{
@@ -22,8 +41,11 @@ header nav .app-tittle{
 
 main{
     display: flex;
-    padding: 0;
     flex-wrap: wrap;
+    margin: 1em;
+    padding: 1em;
+    background-color: white;
+    border-radius: 2em;
 }
 
 main aside, #konten{
@@ -45,46 +67,7 @@ aside *{
     flex: 20%;
 }
 
-#tambah-buku{
-    background-color: whitesmoke;
-}
-
-.input-wrapper{
-    width: 100%;
-    margin: 1em auto;
-    padding: 0;
-}
-
-.input-wrapper label{
-    display: block;
-    margin: .25em;
-}
-
-input[type=text]{}
-
-.input-wrapper input[type=text]{
-    width: 90%;
-    height: 2em;
-    border-radius: .25em;
-    outline: none;
-    margin: .5em auto;
-    /*border: 2px solid rgba(0,213,255, .5);*/
-    /*!*on hover*!*/
-    /*box-shadow: 0 0 2px 2px rgba(0,213,255, .5);*/
-}
-
-.input-wrapper input[type=checkbox]{
-    display: inline-block;
-    margin: 0;
-}
-
-.input-wrapper label[for="is-dibaca"]{
-    display: inline-block;
-    margin: 0;
-}
-
 #pencarian{
-    background-color: whitesmoke;
     padding: .5em;
     display: flex;
 }
@@ -105,7 +88,7 @@ input[type=text]{}
 }
 
 #cari:focus{
-    background-color: whitesmoke;
+    background-color: white;
     border: 1px solid dodgerblue;
     box-shadow: 0 0 1px 2px dodgerblue;
 }
@@ -117,13 +100,104 @@ input[type=text]{}
     cursor: pointer;
 }
 
+#tambah-buku{
+    padding: .5em;
+}
+
+.input-wrapper{
+    width: 100%;
+    margin: 1em auto;
+    padding: 0;
+}
+
+.input-wrapper label{
+    display: block;
+}
+
+input[type=text]{}
+
+.input-wrapper input[type=text]{
+    background-color: rgba(219, 219, 219, 1);
+    width: 95%;
+    padding: .5em;
+    outline: none;
+    border: 1px solid transparent;
+    box-shadow: 0 0 1px 1px transparent;
+    border-radius: .25em;
+    transition: all .3s;
+    /*border: 2px solid rgba(0,213,255, .5);*/
+    /*!*on hover*!*/
+    /*box-shadow: 0 0 2px 2px rgba(0,213,255, .5);*/
+}
+
+
+.input-wrapper input[type=text]:focus{
+    background-color: white;
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 1px 2px dodgerblue;
+}
+
+.input-wrapper input[type=checkbox]{
+    display: inline-block;
+    margin: 0;
+}
+
+.input-wrapper label{
+    font-size: .75em;
+}
+
+.input-wrapper label[for="is-dibaca"]{
+    display: inline-block;
+    margin: 0;
+}
+
+.fit{
+    width: fit-content;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+#is-dibaca{
+    margin: auto;
+}
+
+.btn{
+
+}
+
+.btn-tambah{
+    width: 70%;
+    display: block;
+    color: white;
+    background: rgba(0, 0, 0, .8);
+    outline: none;
+    border: none;
+    box-shadow: 0 .5em rgba(0, 0, 0, 1);
+    font-size: 1em;
+    font-weight: 550;
+    border-radius: .5em;
+    padding:.5em;
+    transition: all .15s ease-in-out;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.btn-tambah:hover{
+    background-color: rgba(0, 0, 0, .9);
+}
+
+.btn-tambah:active{
+    box-shadow: none;
+    transform: translateY(.5em);
+}
+
 #konten{
     display: flex;
     padding: 0;
 }
 
 .bookshelf{
-    background-color: rgba(0,213,255, .5);;
+    background-color: white;
     flex: 40%;
     padding: .5em;
 }
