@@ -43,9 +43,17 @@ if(typeof (Storage) !== undefined){
             "penulis": tambahBuku.penulis.value,
             "tahun": tambahBuku.tahun.value,
             "isDibaca": tambahBuku.isDibaca.checked
+        };
+
+        console.log(objBuku);
+
+        if(objBuku.isDibaca===true){
+            dataBukuJSON.selesai.push(objBuku);
+        }else {
+            dataBukuJSON.belum.push(objBuku);
         }
 
-        console.log(objBuku)
+        localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON))
 
     });
 
