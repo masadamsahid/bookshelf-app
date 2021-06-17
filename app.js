@@ -1,13 +1,23 @@
-
 const bukuStorageKey = "DAFTAR_BUKU";
 
-function hapusBuku(){}
+
 
 if(typeof (Storage) !== undefined){
 
     if(localStorage.getItem(bukuStorageKey) === null){
-        localStorage.setItem(bukuStorageKey, "[]")
+
+        localStorage.setItem(bukuStorageKey,JSON.stringify({
+            selesai: [],
+            belum: []
+        }));
+
     }
+
+    function getStorageItemByKey (key){
+        return localStorage.getItem(key);
+    }
+
+    var dataBukuJSON = JSON.parse(getStorageItemByKey(bukuStorageKey));
 
     //Get input tambah buku input elements
     const tambahBuku = {
@@ -26,7 +36,18 @@ if(typeof (Storage) !== undefined){
     //Get input Cari element
     const cariJudul = document.getElementById('cari');
 
-    addBookBtn.addEventListener('click', ()=>{})
+    addBookBtn.addEventListener('click', ()=>{
+
+        let objBuku = {
+            "judul": tambahBuku.judul.value,
+            "penulis": tambahBuku.penulis.value,
+            "tahun": tambahBuku.tahun.value,
+            "isDibaca": tambahBuku.isDibaca.checked
+        }
+
+        console.log(objBuku)
+
+    });
 
 
 
