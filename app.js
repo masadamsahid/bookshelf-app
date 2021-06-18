@@ -51,7 +51,7 @@ if(typeof (Storage) !== undefined){
                         <p>Tahun : <span class="tahun">${e.tahun}</span></p>
                     </div>
                     <div class="part2">
-                        <button class="btn is-selesai">
+                        <button class="btn is-selesai" onclick="switchStatus('${e.judul}', '${e.penulis}', '${e.tahun}', ${e.isDibaca})">
                             Selesai
                         </button>
                         <button class="btn hapus" onclick="hapusBuku('${e.judul}', '${e.penulis}', '${e.tahun}', ${e.isDibaca})">
@@ -74,7 +74,7 @@ if(typeof (Storage) !== undefined){
                         <p>Tahun : <span class="tahun">${e.tahun}</span></p>
                     </div>
                     <div class="part2">
-                        <button class="btn is-selesai">
+                        <button class="btn is-selesai" onclick="switchStatus('${e.judul}', '${e.penulis}', '${e.tahun}', ${e.isDibaca})">
                             Belum Selesai
                         </button>
                         <button class="btn hapus" onclick="hapusBuku('${e.judul}', '${e.penulis}', '${e.tahun}', ${e.isDibaca})">
@@ -112,6 +112,28 @@ if(typeof (Storage) !== undefined){
 
     }
 
+    function switchStatus(judul, penulis, tahun, isDibaca){
+
+        console.log(
+            `judul: ${judul}\npenulis: ${penulis}\ntahun: ${tahun}\nis dibaca: ${isDibaca}\n`
+        )
+
+        let index = dataBukuJSON[isDibaca ? "selesai" : "belum"].findIndex(
+            e => (e.judul === judul && e.penulis === penulis && e.tahun === tahun)
+        )
+
+        console.log(index)
+
+        dataBukuJSON[isDibaca ? "selesai" : "belum"][index].isDibaca = !isDibaca;
+
+        dataBukuJSON[!isDibaca ? "selesai" : "belum"].push(dataBukuJSON[isDibaca ? "selesai" : "belum"][index]);
+
+        dataBukuJSON[isDibaca ? "selesai" : "belum"].splice(index,1);
+
+        localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON));
+        tampilkanRak();
+
+    }
 
     addBookBtn.addEventListener('click', ()=>{
 
@@ -122,14 +144,25 @@ if(typeof (Storage) !== undefined){
             "isDibaca": tambahBuku.isDibaca.checked
         };
 
-        if(objBuku.isDibaca===true){
-            dataBukuJSON.selesai.push(objBuku);
-        }else {
-            dataBukuJSON.belum.push(objBuku);
+        if (objBuku.judul === ""){
+            alert('Mohon isi kolom "Judul"')
+        }else{
+            if (objBuku.penulis === ""){
+                alert('Mohon isi kolom "Penulis"')
+            }else{
+                if (objBuku.tahun === ""){
+                    alert('Mohon isi kolom "Tahun"')
+                }else{
+                    if(objBuku.isDibaca===true){
+                        dataBukuJSON.selesai.push(objBuku);
+                    }else{
+                        dataBukuJSON.belum.push(objBuku);
+                    }
+                    localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON));
+                    tampilkanRak();
+                }
+            }
         }
-
-        localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON));
-        tampilkanRak();
 
     });
 
