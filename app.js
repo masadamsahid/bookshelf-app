@@ -30,11 +30,67 @@ if(typeof (Storage) !== undefined){
     const addBookBtn = document.getElementById('btn-tambah');
 
     //Bookshelf container
-    const selesaiDibacaContainer = document.getElementById('selesai-dibaca');
-    const belumDibacaContainer = document.getElementById('belum-dibaca');
+    const selesaiDibacaRak = document.querySelectorAll('#selesai-dibaca>.rak-buku');
+    const belumDibacaRak = document.querySelectorAll('#belum-dibaca>.rak-buku');
 
     //Get input Cari element
     const cariJudul = document.getElementById('cari');
+
+    function tampilkanRak(){
+
+        let daftarBukuSelesai = "";
+        let daftarBukuBelum = "";
+
+        dataBukuJSON.selesai.forEach(e => {
+
+            let element =
+                `<div class="item-buku">
+                    <div class="part1">
+                        <h3 class="judul">${e.judul}</h3>
+                        <p>Penulis : <span class="penulis">${e.penulis}</span></p>
+                        <p>Tahun : <span class="tahun">${e.tahun}</span></p>
+                    </div>
+                    <div class="part2">
+                        <button class="btn is-selesai">
+                            Selesai
+                        </button>
+                        <button class="btn hapus">
+                            Hapus
+                        </button>
+                    </div>
+                </div>`;
+
+            daftarBukuSelesai += element;
+
+        });
+
+        dataBukuJSON.belum.forEach(e => {
+
+            let element =
+                `<div class="item-buku">
+                    <div class="part1">
+                        <h3 class="judul">${e.judul}</h3>
+                        <p>Penulis : <span class="penulis">${e.penulis}</span></p>
+                        <p>Tahun : <span class="tahun">${e.tahun}</span></p>
+                    </div>
+                    <div class="part2">
+                        <button class="btn is-selesai">
+                            Selesai
+                        </button>
+                        <button class="btn hapus">
+                            Hapus
+                        </button>
+                    </div>
+                </div>`;
+
+            daftarBukuBelum += element;
+
+        });
+
+        selesaiDibacaRak[0].innerHTML = daftarBukuSelesai;
+        belumDibacaRak[0].innerHTML = daftarBukuBelum;
+
+    }
 
     addBookBtn.addEventListener('click', ()=>{
 
@@ -52,14 +108,11 @@ if(typeof (Storage) !== undefined){
         }else {
             dataBukuJSON.belum.push(objBuku);
         }
+        localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON));
 
-        localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON))
+        tampilkanRak();
 
     });
-
-
-
-
 
 }else{
     alert("Browser tidak mendukung Storage")

@@ -113,7 +113,7 @@ main aside{
 
 input[type=text]{}
 
-.input-wrapper input[type=text]{
+.input-wrapper input{
     background-color: rgba(219, 219, 219, 1);
     width: 95%;
     padding: .5em;
@@ -128,15 +128,10 @@ input[type=text]{}
 }
 
 
-.input-wrapper input[type=text]:focus{
+.input-wrapper input:focus{
     background-color: white;
     border: 1px solid dodgerblue;
     box-shadow: 0 0 1px 2px dodgerblue;
-}
-
-.input-wrapper input[type=checkbox]{
-    display: inline-block;
-    margin: 0;
 }
 
 .input-wrapper label{
@@ -146,16 +141,17 @@ input[type=text]{}
 .input-wrapper label[for="is-dibaca"]{
     display: inline-block;
     margin: 0;
+    flex: unset;
 }
 
 .fit{
-    width: fit-content;
-    margin-right: 0;
-    margin-left: 0;
+    display: unset;
 }
 
 #is-dibaca{
-    margin: auto;
+    display: inline-block;
+    flex: unset;
+    width: fit-content;
 }
 
 .btn{
