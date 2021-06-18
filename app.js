@@ -54,7 +54,7 @@ if(typeof (Storage) !== undefined){
                         <button class="btn is-selesai">
                             Selesai
                         </button>
-                        <button class="btn hapus">
+                        <button class="btn hapus" onclick="hapusBuku('${e.judul}', '${e.penulis}', '${e.tahun}', ${e.isDibaca})">
                             Hapus
                         </button>
                     </div>
@@ -75,9 +75,9 @@ if(typeof (Storage) !== undefined){
                     </div>
                     <div class="part2">
                         <button class="btn is-selesai">
-                            Selesai
+                            Belum Selesai
                         </button>
-                        <button class="btn hapus">
+                        <button class="btn hapus" onclick="hapusBuku('${e.judul}', '${e.penulis}', '${e.tahun}', ${e.isDibaca})">
                             Hapus
                         </button>
                     </div>
@@ -92,6 +92,27 @@ if(typeof (Storage) !== undefined){
 
     }
 
+    tampilkanRak();
+
+    function hapusBuku(judul, penulis, tahun, isDibaca){
+
+        let x = dataBukuJSON[isDibaca ? "selesai" : "belum"].filter(e => {
+
+            let a = (e.judul === judul && e.penulis === penulis && e.tahun === tahun && e.isDibaca === isDibaca)
+
+            return !a;
+        });
+
+        console.log('berhasil menghapus')
+
+        dataBukuJSON[isDibaca ? "selesai" : "belum"] = x;
+
+        localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON));
+        tampilkanRak();
+
+    }
+
+
     addBookBtn.addEventListener('click', ()=>{
 
         let objBuku = {
@@ -101,15 +122,13 @@ if(typeof (Storage) !== undefined){
             "isDibaca": tambahBuku.isDibaca.checked
         };
 
-        console.log(objBuku);
-
         if(objBuku.isDibaca===true){
             dataBukuJSON.selesai.push(objBuku);
         }else {
             dataBukuJSON.belum.push(objBuku);
         }
-        localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON));
 
+        localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON));
         tampilkanRak();
 
     });
