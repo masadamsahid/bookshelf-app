@@ -17,7 +17,9 @@ if(typeof (Storage) !== undefined){
         return localStorage.getItem(key);
     }
 
-    var dataBukuJSON = JSON.parse(getStorageItemByKey(bukuStorageKey));
+    // var dataBukuJSON = JSON.parse(getStorageItemByKey(bukuStorageKey));
+
+    var dataBukuJSON = {"selesai":[{"judul": "judul 1","penulis": "penulis 1","tahun": "1000","isDibaca": true}, {"judul": "judul 2","penulis": "penulis 2","tahun": "2000","isDibaca": true}, {"judul": "judul 3","penulis": "penulis 3","tahun": "3000","isDibaca": true}, {"judul": "judul 4","penulis": "penulis 4","tahun": "4000","isDibaca": true}, {"judul": "judul 5","penulis": "penulis 5","tahun": "5000","isDibaca": true}], "belum": [{"judul": "judul 6","penulis": "penulis 6","tahun": "6000","isDibaca": false}, {"judul": "judul 7","penulis": "penulis 7","tahun": "7000","isDibaca": false}, {"judul": "judul 8","penulis": "penulis 8","tahun": "8000","isDibaca": false}, {"judul": "judul 9","penulis": "penulis 9","tahun": "9000","isDibaca": false}, {"judul": "judul 10","penulis": "penulis 10","tahun": "0000","isDibaca": false},]}
 
     //Get input tambah buku input elements
     const tambahBuku = {
@@ -45,7 +47,7 @@ if(typeof (Storage) !== undefined){
 
             let element =
                 `<div class="item-buku">
-                    <div class="part1">
+                    <div class="part1" ondblclick="editBuku('${e.judul}', '${e.penulis}', '${e.tahun}', ${e.isDibaca})">
                         <h3 class="judul">${e.judul}</h3>
                         <p>Penulis : <span class="penulis">${e.penulis}</span></p>
                         <p>Tahun : <span class="tahun">${e.tahun}</span></p>
@@ -68,7 +70,7 @@ if(typeof (Storage) !== undefined){
 
             let element =
                 `<div class="item-buku">
-                    <div class="part1">
+                    <div class="part1" ondblclick="editBuku('${e.judul}', '${e.penulis}', '${e.tahun}', ${e.isDibaca})">
                         <h3 class="judul">${e.judul}</h3>
                         <p>Penulis : <span class="penulis">${e.penulis}</span></p>
                         <p>Tahun : <span class="tahun">${e.tahun}</span></p>
@@ -98,7 +100,7 @@ if(typeof (Storage) !== undefined){
 
         let x = dataBukuJSON[isDibaca ? "selesai" : "belum"].filter(e => {
 
-            let a = (e.judul === judul && e.penulis === penulis && e.tahun === tahun && e.isDibaca === isDibaca)
+            let a = (e.judul === judul && e.penulis === penulis && e.tahun === tahun)
 
             return !a;
         });
@@ -109,6 +111,70 @@ if(typeof (Storage) !== undefined){
 
         localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON));
         tampilkanRak();
+
+    }
+
+    function editBuku(judul, penulis, tahun, isDibaca){
+
+        let x = dataBukuJSON[isDibaca ? "selesai" : "belum"].findIndex(e => {
+
+            let a = (e.judul === judul && e.penulis === penulis && e.tahun === tahun)
+
+            return a;
+        });
+
+        if(x >= 0){
+            console.log(x)
+            const element = dataBukuJSON[isDibaca ? "selesai" : "belum"][x];
+
+            let isDataRight = true;
+
+            do{
+                element.judul = prompt("Masukkan Judul",`${element.judul}`)
+                element.penulis = prompt("Masukkan Penulis", `${element.penulis}`)
+
+                do{
+                    alert("Mohon isikan angka")
+                    element.tahun = prompt("Masukkan Tahun",`${element.tahun}`)
+                }while (Number.isNaN(parseInt(element.tahun)))
+
+                element.isDibaca = confirm('Buku sudah selesai dibaca?')
+
+                isDataRight = confirm(`
+                Apakah data berikut sudah benar?\n\n
+                Judul: ${element.judul}\n
+                Penulis: ${element.penulis}\n
+                Tahun: ${element.tahun}\n
+                Status Baca: ${element.isDibaca ? 'Selesai' : 'Belum Selesai'}
+                `)
+
+                if (isDataRight){
+                    break;
+                }
+
+            }while (true)
+
+            if (element.isDibaca===isDibaca){
+                dataBukuJSON[element.isDibaca ? "selesai" : "belum"][x] = element;
+            }else {
+                dataBukuJSON[element.isDibaca ? 'selesai' : 'belum'].push(element);
+                hapusBuku(element.judul, element.penulis, element.tahun, isDibaca)
+            }
+
+            console.log(element)
+
+            localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON));
+            tampilkanRak();
+
+            if (element.isDibaca===isDibaca){
+                alert("BUKU BERHASIL DISUNTING")
+            }else {
+                alert(`BUKU BERHASIL DISUNTING DAN DIPINDAHKAN PADA RAK ${element.isDibaca?'SELESAI':'BELUM'} DIBACA`)
+            }
+
+        }else {
+            alert('buku tidak ditemukan')
+        }
 
     }
 
@@ -157,7 +223,7 @@ if(typeof (Storage) !== undefined){
 
             let element =
                 `<div class="item-buku">
-                    <div class="part1">
+                    <div class="part1" ondblclick="editBuku('${e.judul}', '${e.penulis}', '${e.tahun}', ${e.isDibaca})">
                         <h3 class="judul">${e.judul}</h3>
                         <p>Penulis : <span class="penulis">${e.penulis}</span></p>
                         <p>Tahun : <span class="tahun">${e.tahun}</span></p>
@@ -180,7 +246,7 @@ if(typeof (Storage) !== undefined){
 
             let element =
                 `<div class="item-buku">
-                    <div class="part1">
+                    <div class="part1" ondblclick="editBuku('${e.judul}', '${e.penulis}', '${e.tahun}', ${e.isDibaca})">
                         <h3 class="judul">${e.judul}</h3>
                         <p>Penulis : <span class="penulis">${e.penulis}</span></p>
                         <p>Tahun : <span class="tahun">${e.tahun}</span></p>
@@ -238,5 +304,3 @@ if(typeof (Storage) !== undefined){
 }else{
     alert("Browser tidak mendukung Storage")
 }
-
-

@@ -91,10 +91,29 @@ main aside{
 }
 
 #go-cari{
-    flex: 20%;
+    flex: 10%;
     text-align: center;
-    padding: 0.25em;
     cursor: pointer;
+    background-color: black;
+    color: white;
+    margin: auto 1em;
+    border-radius: .5em;
+
+    background: rgba(0, 0, 0, .8);
+    outline: none;
+    border: none;
+    box-shadow: 0 .5em rgba(0, 0, 0, 1);
+    padding:.5em;
+    transition: all .15s ease-in-out;
+}
+
+#go-cari:hover{
+    background-color: rgba(0, 0, 0, .9);
+}
+
+#go-cari:active{
+    box-shadow: none;
+    transform: translateY(.5em);
 }
 
 #tambah-buku{
