@@ -282,8 +282,19 @@ input[type=text]{}
 
 .hapus:hover{background-color: darkred;color: white}
 
+#warning{
+    margin: 1em auto;
+    padding: .5em;
+    background-color: gray;
+    color: white;
+    border-radius: .5em;
+    width: fit-content;
+}
 
-
+#warning p{
+    font-size: .75em;
+    margin: auto;
+}
 
 
 
