@@ -23,15 +23,15 @@ body{
     background-image: url("https://res.cloudinary.com/twenty20/private_images/t_watermark-criss-cross-10/v1561760443000/photosp/aef02960-60f5-4b9b-ac82-7cbe9703d945/stock-photo-backgrounds-colorful-bookshelf-library-colourful-background-books-in-the-library-library-books-aef02960-60f5-4b9b-ac82-7cbe9703d945.jpg");
 }
 
-header{
-    display: none;
-}
 
 header nav{
     padding: 1em;
     background-color: white;
     display: flex;
     text-align: center;
+    width: 70%;
+    border-radius: 1em;
+    margin: .5em auto;
 }
 
 header nav .app-tittle{
@@ -191,7 +191,7 @@ input[type=text]{}
     padding:.5em;
     transition: all .15s ease-in-out;
     cursor: pointer;
-    margin: 0 auto;
+    margin: .5em auto;
 }
 
 .btn-tambah:hover{
@@ -294,6 +294,7 @@ input[type=text]{}
 #warning p{
     font-size: .75em;
     margin: auto;
+    text-align: center;
 }
 
 

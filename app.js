@@ -17,9 +17,7 @@ if(typeof (Storage) !== undefined){
         return localStorage.getItem(key);
     }
 
-    // var dataBukuJSON = JSON.parse(getStorageItemByKey(bukuStorageKey));
-
-    var dataBukuJSON = {"selesai":[{"judul": "judul 1","penulis": "penulis 1","tahun": "1000","isDibaca": true}, {"judul": "judul 2","penulis": "penulis 2","tahun": "2000","isDibaca": true}, {"judul": "judul 3","penulis": "penulis 3","tahun": "3000","isDibaca": true}, {"judul": "judul 4","penulis": "penulis 4","tahun": "4000","isDibaca": true}, {"judul": "judul 5","penulis": "penulis 5","tahun": "5000","isDibaca": true}], "belum": [{"judul": "judul 6","penulis": "penulis 6","tahun": "6000","isDibaca": false}, {"judul": "judul 7","penulis": "penulis 7","tahun": "7000","isDibaca": false}, {"judul": "judul 8","penulis": "penulis 8","tahun": "8000","isDibaca": false}, {"judul": "judul 9","penulis": "penulis 9","tahun": "9000","isDibaca": false}, {"judul": "judul 10","penulis": "penulis 10","tahun": "0000","isDibaca": false},]}
+    var dataBukuJSON = JSON.parse(getStorageItemByKey(bukuStorageKey));
 
     //Get input tambah buku input elements
     const tambahBuku = {
@@ -105,8 +103,6 @@ if(typeof (Storage) !== undefined){
             return !a;
         });
 
-        console.log('berhasil menghapus')
-
         dataBukuJSON[isDibaca ? "selesai" : "belum"] = x;
 
         localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON));
@@ -124,7 +120,6 @@ if(typeof (Storage) !== undefined){
         });
 
         if(x >= 0){
-            console.log(x)
             const element = dataBukuJSON[isDibaca ? "selesai" : "belum"][x];
 
             let isDataRight = true;
@@ -161,8 +156,6 @@ if(typeof (Storage) !== undefined){
                 hapusBuku(element.judul, element.penulis, element.tahun, isDibaca)
             }
 
-            console.log(element)
-
             localStorage.setItem(bukuStorageKey, JSON.stringify(dataBukuJSON));
             tampilkanRak();
 
@@ -180,15 +173,10 @@ if(typeof (Storage) !== undefined){
 
     function switchStatus(judul, penulis, tahun, isDibaca){
 
-        console.log(
-            `judul: ${judul}\npenulis: ${penulis}\ntahun: ${tahun}\nis dibaca: ${isDibaca}\n`
-        )
 
         let index = dataBukuJSON[isDibaca ? "selesai" : "belum"].findIndex(
             e => (e.judul === judul && e.penulis === penulis && e.tahun === tahun)
         )
-
-        console.log(index)
 
         dataBukuJSON[isDibaca ? "selesai" : "belum"][index].isDibaca = !isDibaca;
 
